@@ -1,4 +1,4 @@
-package model;
+package br.com.riscozero.core.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

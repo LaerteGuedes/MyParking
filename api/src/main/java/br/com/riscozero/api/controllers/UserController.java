@@ -1,13 +1,13 @@
-package controllers;
+package br.com.riscozero.api.controllers;
 
-import model.User;
+import br.com.riscozero.core.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import repositories.UserRepository;
+import br.com.riscozero.core.repositories.UserRepository;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping("/")
-    ResponseEntity<List<User>> index(){
+    public ResponseEntity<List<User>> index(){
         List<User> users = userRepository.findAll();
 
         return new ResponseEntity<>(users, HttpStatus.OK);

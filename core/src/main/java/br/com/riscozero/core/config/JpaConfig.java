@@ -1,4 +1,4 @@
-package config;
+package br.com.riscozero.core.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +27,7 @@ import java.util.Properties;
  * Created by laerteguedes on 26/08/17.
  */
 @Configuration
-@EnableJpaRepositories(basePackages = "br.com.riscozero.repositories",
+@EnableJpaRepositories(basePackages = "br.com.riscozero.core.repositories",
                         entityManagerFactoryRef = "entityManagerFactory",
                         transactionManagerRef = "transactionManager")
 @EnableTransactionManagement
@@ -65,7 +65,7 @@ public class JpaConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan(new String[] {"br.com.riscozero.model"});
+        factoryBean.setPackagesToScan(new String[] {"br.com.riscozero.core.model"});
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
