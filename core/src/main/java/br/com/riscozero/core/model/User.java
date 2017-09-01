@@ -3,6 +3,7 @@ package br.com.riscozero.core.model;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class User implements Serializable{
     private String email;
 
     @NotNull
-    @Min(value = 6, message = "No mínimo 6 caracteres")
+    @Size(min = 6, message = "No mínimo 6 caracteres")
     private String password;
     private boolean active;
 

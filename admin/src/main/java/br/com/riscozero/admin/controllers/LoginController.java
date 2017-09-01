@@ -45,10 +45,10 @@ public class LoginController {
         if (bindingResult.hasErrors()){
             mv.setViewName("registration");
         }else{
-            userService.save(user);
+            userService.saveAdmin(user);
             mv.addObject("successMessage", "Usuario cadastrado com sucesso!");
             mv.addObject("user", new User());
-            mv.setViewName("registration");
+            mv.setViewName("login");
         }
 
         return mv;

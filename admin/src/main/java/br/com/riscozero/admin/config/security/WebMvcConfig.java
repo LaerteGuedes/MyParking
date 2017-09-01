@@ -1,4 +1,4 @@
-package br.com.riscozero.admin.config;
+package br.com.riscozero.admin.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
