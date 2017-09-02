@@ -7,13 +7,7 @@ import java.util.List;
 /**
  * Created by laerteguedes on 30/08/17.
  */
-public interface UserService {
-
-    List<User> findAll();
-    User find(Long id);
+public interface UserService extends BaseService<User, Long> {
     User findByEmail(String email);
-    void save(User user);
     void saveAdmin(User user);
-    void delete(Long id);
-
 }

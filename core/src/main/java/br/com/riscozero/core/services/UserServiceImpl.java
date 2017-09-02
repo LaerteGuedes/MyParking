@@ -5,6 +5,7 @@ import br.com.riscozero.core.model.User;
 import br.com.riscozero.core.repositories.RoleRepository;
 import br.com.riscozero.core.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 @Service("userService")
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -30,13 +31,8 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public User find(Long id) {
-        return userRepository.findOne(id);
+    public JpaRepository getRepository() {
+        return userRepository;
     }
 
     @Override
@@ -58,10 +54,5 @@ public class UserServiceImpl implements UserService {
         user.setRoles(new HashSet<>(Arrays.asList(adminRole)));
 
         save(user);
-    }
-
-    @Override
-    public void delete(Long id) {
-        userRepository.delete(id);
     }
 }

@@ -1,12 +1,12 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <div th:fragment="header-css">
         <!-- this is header-css -->
-        <link rel="stylesheet" type="text/css"
-              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/riscozero/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-        <link rel="stylesheet" th:href="@{/css/main.css}"
-              href="../../css/main.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}"/>
+        <script src="/riscozero/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </div>
 </head>
 <body>
@@ -14,8 +14,18 @@
     <!-- this is header -->
     <nav class="navbar navbar-inverse">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" sec:authorize="isGuest()">
                 <a class="navbar-brand" th:href="@{/login}">Login</a>
+            </div>
+            <div class="navbar-header" sec:authorize="hasRole('ADMIN')">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Usuario
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{/users/}">Lista</a></li>
+                        <li><a th:href="@{/users/add}">Cadastro</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
