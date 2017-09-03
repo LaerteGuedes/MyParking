@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by laerteguedes on 02/09/17.
  */
-public interface CrudController<T> {
+public interface BaseController<T> {
 
     ModelAndView index(ModelAndView mv);
     ModelAndView add(ModelAndView mv);
