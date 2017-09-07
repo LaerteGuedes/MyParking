@@ -43,7 +43,7 @@ public class LoginController {
             bindingResult.rejectValue("email", "error.user", "Email ja cadastrado");
 
         if (bindingResult.hasErrors()){
-            mv.setViewName("registration");
+            mv.setViewName("sign-up");
         }else{
             userService.saveAdmin(user);
             mv.addObject("successMessage", "Usuario cadastrado com sucesso!");
