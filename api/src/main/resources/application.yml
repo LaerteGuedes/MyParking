@@ -1,0 +1,24 @@
+server:
+    port: 8080
+    contextPath: /riscozero/api
+
+
+security.basic.enable: false
+management.security.enabled: false
+
+---
+spring:
+    profiles: local,default
+datasource:
+    riscozero:
+        url: jdbc:mysql://localhost:3306/riscozero
+        username: root
+        password: rabbit
+        driverClassName: com.mysql.jdbc.Driver
+        defaultSchema:
+        hibernate:
+            hbm2ddl.method: create
+            show_sql: true
+            format_sql: true
+            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+---
