@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <div th:fragment="scripts">
+        <!-- Jquery Core Js -->
+        <script th:src="@{/plugins/jquery/jquery.min.js}" type="application/javascript"></script>
+
+        <!-- Bootstrap Core Js -->
+        <script th:src="@{/plugins/bootstrap/js/bootstrap.js}" type="application/javascript"></script>
+
+        <!-- Waves Effect Plugin Js -->
+        <script th:src="@{/plugins/node-waves/waves.js}" type="application/javascript"></script>
+
+        <!-- Validation Plugin Js -->
+        <script th:src="@{/plugins/jquery-validation/jquery.validate.js}" type="application/javascript"></script>
+
+        <!-- Custom Js -->
+        <script th:src="@{/js/admin.js}" type="application/javascript"></script>
+        <script th:src="@{/js/pages/examples/sign-in.js}" type="application/javascript"></script>
+    </div>
+
+</body>
+</html>
