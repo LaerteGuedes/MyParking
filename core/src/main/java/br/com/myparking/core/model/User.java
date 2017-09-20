@@ -1,4 +1,4 @@
-package br.com.riscozero.core.model;
+package br.com.myparking.core.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
