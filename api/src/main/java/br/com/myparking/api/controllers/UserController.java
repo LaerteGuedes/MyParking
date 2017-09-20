@@ -1,13 +1,13 @@
-package br.com.riscozero.api.controllers;
+package br.com.myparking.api.controllers;
 
-import br.com.riscozero.core.model.User;
+import br.com.myparking.core.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.riscozero.core.repositories.UserRepository;
+import br.com.myparking.core.repositories.UserRepository;
 
 import java.util.List;
 

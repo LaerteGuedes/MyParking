@@ -1,6 +1,6 @@
 server:
     port: 8080
-    contextPath: /riscozero/api
+    contextPath: /myparking/api
 
 
 security.basic.enable: false
@@ -10,8 +10,8 @@ management.security.enabled: false
 spring:
     profiles: local,default
 datasource:
-    riscozero:
-        url: jdbc:mysql://localhost:3306/riscozero
+    myparking:
+        url: jdbc:mysql://localhost:3306/myparking
         username: root
         password: rabbit
         driverClassName: com.mysql.jdbc.Driver

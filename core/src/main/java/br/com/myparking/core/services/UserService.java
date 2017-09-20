@@ -1,6 +1,6 @@
-package br.com.riscozero.core.services;
+package br.com.myparking.core.services;
 
-import br.com.riscozero.core.model.User;
+import br.com.myparking.core.model.User;
 
 import java.util.List;
 

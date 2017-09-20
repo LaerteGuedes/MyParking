@@ -1,9 +1,9 @@
-package br.com.riscozero.core.services;
+package br.com.myparking.core.services;
 
-import br.com.riscozero.core.model.Role;
-import br.com.riscozero.core.model.User;
-import br.com.riscozero.core.repositories.RoleRepository;
-import br.com.riscozero.core.repositories.UserRepository;
+import br.com.myparking.core.model.Role;
+import br.com.myparking.core.model.User;
+import br.com.myparking.core.repositories.RoleRepository;
+import br.com.myparking.core.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

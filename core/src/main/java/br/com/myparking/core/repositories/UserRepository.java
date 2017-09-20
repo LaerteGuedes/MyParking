@@ -1,6 +1,6 @@
-package br.com.riscozero.core.repositories;
+package br.com.myparking.core.repositories;
 
-import br.com.riscozero.core.model.User;
+import br.com.myparking.core.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package br.com.riscozero.core.config;
+package br.com.myparking.core.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.commons.lang3.StringUtils;
@@ -26,8 +26,8 @@ import java.util.Properties;
 /**
  * Created by laerteguedes on 26/08/17.
  */
-@Configuration
-@EnableJpaRepositories(basePackages = "br.com.riscozero.core.repositories",
+@org.springframework.context.annotation.Configuration
+@EnableJpaRepositories(basePackages = "br.com.myparking.core.repositories",
                         entityManagerFactoryRef = "entityManagerFactory",
                         transactionManagerRef = "transactionManager")
 @EnableTransactionManagement
@@ -36,12 +36,12 @@ public class JpaConfig {
     @Autowired
     private Environment environment;
 
-    @Value("${datasource.riscozero.maxPoolSize:10}")
+    @Value("${datasource.myparking.maxPoolSize:10}")
     private int maxPoolSize;
 
     @Bean
     @Primary
-    @ConfigurationProperties(prefix = "datasource.riscozero")
+    @ConfigurationProperties(prefix = "datasource.myparking")
     public DataSourceProperties dataSourceProperties(){
         return new DataSourceProperties();
     }
@@ -65,7 +65,7 @@ public class JpaConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan(new String[] {"br.com.riscozero.core.model"});
+        factoryBean.setPackagesToScan(new String[] {"br.com.myparking.core.model"});
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
@@ -87,12 +87,12 @@ public class JpaConfig {
 
     private Properties jpaProperties(){
         Properties properties = new Properties();
-        properties.put("hibernate.dialect", environment.getRequiredProperty("datasource.riscozero.hibernate.dialect"));
-        properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("datasource.riscozero.hibernate.hbm2ddl.method"));
-        properties.put("hibernate.show_sql", environment.getRequiredProperty("datasource.riscozero.hibernate.show_sql"));
-        properties.put("hibernate.format_sql", environment.getRequiredProperty("datasource.riscozero.hibernate.format_sql"));
-        if(StringUtils.isNotEmpty(environment.getRequiredProperty("datasource.riscozero.defaultSchema"))){
-            properties.put("hibernate.default_schema", environment.getRequiredProperty("datasource.riscozero.defaultSchema"));
+        properties.put("hibernate.dialect", environment.getRequiredProperty("datasource.myparking.hibernate.dialect"));
+        properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("datasource.myparking.hibernate.hbm2ddl.method"));
+        properties.put("hibernate.show_sql", environment.getRequiredProperty("datasource.myparking.hibernate.show_sql"));
+        properties.put("hibernate.format_sql", environment.getRequiredProperty("datasource.myparking.hibernate.format_sql"));
+        if(StringUtils.isNotEmpty(environment.getRequiredProperty("datasource.myparking.defaultSchema"))){
+            properties.put("hibernate.default_schema", environment.getRequiredProperty("datasource.myparking.defaultSchema"));
         }
         return properties;
     }
