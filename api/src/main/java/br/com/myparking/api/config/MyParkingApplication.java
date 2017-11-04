@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @Import({JpaConfig.class, SecurityConfig.class})
-@ComponentScan(basePackages = "br.com.myparking.api.controllers")
+@ComponentScan(basePackages = {"br.com.myparking.api.controllers", "br.com.myparking.core.services"})
 public class MyParkingApplication {
 
 	public static void main(String[] args) {
