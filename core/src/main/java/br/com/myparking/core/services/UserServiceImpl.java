@@ -7,6 +7,7 @@ import br.com.myparking.core.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +29,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     private RoleRepository roleRepository;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public JpaRepository getRepository() {
@@ -41,18 +42,11 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     @Override
-    public void save(User user) {
+    public void insert(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(true);
 
-        userRepository.save(user);
+        super.insert(user);
     }
 
-    @Override
-    public void saveAdmin(User user) {
-        Role adminRole = roleRepository.findByName("ADMIN");
-        user.setRoles(new HashSet<>(Arrays.asList(adminRole)));
-
-        save(user);
-    }
 }

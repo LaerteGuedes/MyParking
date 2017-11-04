@@ -9,5 +9,4 @@ import java.util.List;
  */
 public interface UserService extends BaseService<User, Long> {
     User findByEmail(String email);
-    void saveAdmin(User user);
 }
