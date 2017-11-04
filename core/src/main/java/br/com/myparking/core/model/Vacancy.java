@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "vacancy")
-public class Vacancy implements Serializable{
+public class Vacancy implements Serializable, Model{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

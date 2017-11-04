@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "vehicle")
-public class Vehicle implements Serializable{
+public class Vehicle implements Serializable, Model{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

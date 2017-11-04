@@ -12,7 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "users")
-public class User implements Serializable{
+public class User implements Serializable, Model{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,7 @@ public class User implements Serializable{
     @NotNull
     @Size(min = 6, message = "No mínimo 6 caracteres")
     private String password;
+
     private boolean active;
 
     @ManyToMany(cascade = CascadeType.ALL)

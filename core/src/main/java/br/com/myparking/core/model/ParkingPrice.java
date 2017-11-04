@@ -2,6 +2,7 @@ package br.com.myparking.core.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "parking_price")
-public class ParkingPrice {
+public class ParkingPrice implements Serializable, Model{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
