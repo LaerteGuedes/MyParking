@@ -23,7 +23,7 @@ public abstract class BaseServiceImpl<T extends Model> implements BaseService<T,
     public T find(Long id) {
         T t = (T) getRepository().findOne(id);
 
-        if (t.getId() == null)
+        if (t == null)
             throw new NotFoundException("Element not found!");
 
         return (T) getRepository().findOne(id);
