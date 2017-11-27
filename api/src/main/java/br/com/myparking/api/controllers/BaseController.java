@@ -50,10 +50,10 @@ public abstract class BaseController<T extends Model> {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(Long id){
+    public ResponseEntity delete(@PathVariable("id") Long id){
         getService().delete(id);
 
-        return ResponseEntityFactory.create(new Object());
+        return ResponseEntityFactory.create(null);
     }
 
 
