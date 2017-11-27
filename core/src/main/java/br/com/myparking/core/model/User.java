@@ -1,7 +1,6 @@
 package br.com.myparking.core.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -19,17 +18,17 @@ public class User implements Serializable, Model{
     private Long id;
 
     @NotNull
+    @Column(unique = true)
     private String email;
 
     @NotNull
     @Size(min = 6, message = "No mínimo 6 caracteres")
     private String password;
 
-    private boolean active;
+    @ManyToOne
+    private Role role;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private boolean active;
 
     public Long getId() {
         return id;
@@ -63,11 +62,11 @@ public class User implements Serializable, Model{
         this.active = active;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
